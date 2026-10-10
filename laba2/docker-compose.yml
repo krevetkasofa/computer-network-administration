@@ -3,7 +3,7 @@ services:
     image: nextcloud:29.0.6
     container_name: nextcloud # на это имя будет завязана настройка забикса далее, так что лучше не менять
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
       - nc-data:/var/www/html/data
 
