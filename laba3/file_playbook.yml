@@ -1,0 +1,36 @@
+---
+- name: Work with test file
+  hosts: my_servers
+  connection: local
+  vars:
+    file_path: "{{ lookup('env', 'HOME') }}/test.txt"
+
+  tasks:
+    - name: 1. Create file with content
+      shell: echo test_file_content > {{ file_path }}
+
+    - name: 2. Read file content
+      command: cat {{ file_path }}
+      register: before
+
+    - name: Show content before change
+      debug:
+        msg: "{{ before.stdout }}"
+
+    - name: 3. Change file content
+      copy:
+        dest: "{{ file_path }}"
+        content: "new_changed_content\n"
+
+    - name: Read file content after change
+      command: cat {{ file_path }}
+      register: after
+
+    - name: Show content after change
+      debug:
+        msg: "{{ after.stdout }}"
+
+    - name: 4. Delete file
+      file:
+        path: "{{ file_path }}"
+        state: absent

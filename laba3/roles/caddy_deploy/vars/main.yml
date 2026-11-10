@@ -1,0 +1,9 @@
+---
+# vars file for caddy_deploy
+domain_name: ":80"
+
+log:
+  file: /var/log/caddy/access.log
+  level: "INFO"
+
+site_root: /var/www/html

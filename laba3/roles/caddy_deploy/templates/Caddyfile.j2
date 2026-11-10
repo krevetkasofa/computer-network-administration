@@ -1,0 +1,16 @@
+{{ domain_name }} {
+    root * {{ site_root }}
+    file_server
+
+    header {
+        X-Lab-Work "Ansible + Caddy"
+        X-Frame-Options "DENY"
+        -Server
+    }
+
+    log {
+        output file {{ log.file }}
+        format json
+        level {{ log.level }}
+    }
+}
