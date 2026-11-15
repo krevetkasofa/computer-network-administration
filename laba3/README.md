@@ -1,4 +1,4 @@
-# ЛР 2. Ansible + Caddy
+# ЛР 3. Ansible + Caddy
 
 ## Для удобства!
 
